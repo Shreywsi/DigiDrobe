@@ -1,14 +1,13 @@
 /* Global Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #dddbd4;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background-color: #dddbd4;
 }
 
 /* Home Page */
@@ -21,7 +20,6 @@ body {
     background-image: url('images/home.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     z-index: -1;
 }
 
@@ -39,7 +37,7 @@ body {
 h1 {
     margin: 40px 0 20px 0;
     font-family: 'Jomhuria', sans-serif;
-    font-size: 100px;
+    font-size: 5vw; /* Adjust font size for responsiveness */
     color: #2a2222;
     letter-spacing: 3px;
 }
@@ -79,17 +77,15 @@ button:hover {
     background-image: url('images/mixmatch.jpeg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     z-index: -1;
     padding: 0;
     margin: 0;
 }
 
-/* Top and Bottom Containers */
 .top-container,
 .bottom-container {
     display: flex;
@@ -97,33 +93,8 @@ button:hover {
     align-items: center;
     gap: 0;
     position: relative;
-    width: 300px;
+    width: 80%; /* Adjust width for responsiveness */
     margin: 0;
-}
-
-/* Adjust the space around the containers */
-.top-container {
-    margin-top: 20px;
-}
-
-.bottom-container {
-    margin-bottom: 20px;
-}
-
-/* Previous and Next Buttons for Top */
-.top-container .top-buttons {
-    position: absolute;
-    top: -40px;
-    display: flex;
-    gap: 10px;
-}
-
-/* Previous and Next Buttons for Bottom */
-.bottom-container .bottom-buttons {
-    position: absolute;
-    bottom: -40px;
-    display: flex;
-    gap: 10px;
 }
 
 /* Viewer Styling */
@@ -136,9 +107,9 @@ button:hover {
 }
 
 .image-wrapper {
-    width: 200px;
-    height: 250px;
-    overflow: hidden;
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* Make image container responsive */
     border: 2px solid #2a2222;
     display: flex;
     justify-content: center;
@@ -196,52 +167,6 @@ img {
     background-color: #312a2e;
 }
 
-/* Buttons Styling */
-button {
-    padding: 10px 20px;
-    background-color: #423737;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #312a2e;
-}
-
-/* Styles for Wardrobe Section */
-/* Global Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #dddbd4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-}
-
-/* Home Page */
-#homepage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/home.png');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-
-/* Mix & Match Section */
-.viewer img {
-    transition: transform 0.3s ease;
-}
-
 /* Wardrobe Section */
 #wardrobe-gallery {
     display: flex;
@@ -287,6 +212,7 @@ body {
     padding: 0;
     margin: 0;
 }
+
 #wardrobe {
     display: flex;
     justify-content: center;
@@ -315,7 +241,6 @@ body {
     display: block;
     font-size: 20px;
     cursor: pointer;
-    
 }
 
 .wardrobe-btn:hover {
@@ -343,4 +268,78 @@ body {
 
 .home-button-container button:hover {
     background-color: #312a2e;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Tablets and Smaller Screens */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 6vw; /* Scale down the font size on smaller screens */
+    }
+
+    .main-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mixmatch-containers,
+    .wardrobe-section {
+        padding: 20px;
+    }
+
+    .top-container,
+    .bottom-container {
+        width: 100%; /* Make containers take full width */
+    }
+
+    .wardrobe-buttons {
+        width: 100%;
+        grid-template-columns: 1fr; /* Stack buttons vertically on small screens */
+    }
+
+    .wardrobe-btn {
+        width: 100%;
+        padding: 20px;
+        font-size: 18px; /* Adjust button text size */
+    }
+
+    #gallery-container img {
+        width: 120px; /* Resize images for smaller screens */
+    }
+}
+
+/* For Mobile Screens */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 8vw; /* Make the title even smaller on mobile */
+    }
+
+    .zoom-buttons-left,
+    .up-down-buttons-right {
+        display: none; /* Hide zoom and move buttons on mobile */
+    }
+
+    .mixmatch-containers,
+    .wardrobe-section {
+        padding: 10px;
+    }
+
+    .top-container,
+    .bottom-container {
+        width: 100%;
+    }
+
+    .wardrobe-buttons {
+        grid-template-columns: 1fr; /* Stack buttons vertically on mobile */
+    }
+
+    .wardrobe-btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #gallery-container img {
+        width: 100px; /* Further reduce image size */
+    }
 }
