@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiDrobe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home">
+        <div id="homepage"></div>
+        <h1>Welcome to DigiDrobe!</h1>
+        <div class="main-navigation">
+            <button onclick="showPage('mixmatch')">Mix & Match</button>
+            <button onclick="showPage('wardrobe')">Wardrobe</button>
+        </div>
+        <div class="description">
+            <p>Your digital wardrobe, redefined.</p>
+        </div>
+    </div>
+
+    <!-- Mix & Match Page -->
+    <div id="mixmatch" style="display:none;">
+        <h1>Mix & Match</h1>
+        <div class="home-button-container">
+            <button onclick="showPage('home')">Home</button>
+        </div>
+        <div class="mixmatch-containers">
+            <!-- Top Viewer Container -->
+            <div class="top-container">
+                <!-- Previous and Next Buttons for Top -->
+                <div class="top-buttons">
+                    <button onclick="prevTop()">Previous Top</button>
+                    <button onclick="nextTop()">Next Top</button>
+                </div>
+                <div class="viewer" id="top-viewer">
+                    <div class="image-container">
+                        <div class="zoom-buttons-left">
+                            <button onclick="zoomIn('top')">+</button>
+                            <button onclick="zoomOut('top')">-</button>
+                        </div>
+                        <div class="up-down-buttons-right">
+                            <button onclick="moveUp('top')">↑</button>
+                            <button onclick="moveDown('top')">↓</button>
+                        </div>
+                        <div class="image-wrapper">
+                            <img id="top-img" src="images/top1.png" alt="Top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Viewer Container -->
+            <div class="bottom-container">
+                <div class="viewer" id="bottom-viewer">
+                    <div class="image-container">
+                        <div class="zoom-buttons-left">
+                            <button onclick="zoomIn('bottom')">+</button>
+                            <button onclick="zoomOut('bottom')">-</button>
+                        </div>
+                        <div class="up-down-buttons-right">
+                            <button onclick="moveUp('bottom')">↑</button>
+                            <button onclick="moveDown('bottom')">↓</button>
+                        </div>
+                        <div class="image-wrapper">
+                            <img id="bottom-img" src="images/bottom1.png" alt="Bottom">
+                        </div>
+                    </div>
+                </div>
+                <!-- Previous and Next Buttons for Bottom -->
+                <div class="bottom-buttons">
+                    <button onclick="prevBottom()">Previous Bottom</button>
+                    <button onclick="nextBottom()">Next Bottom</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wardrobe Page -->
+    <div id="wardrobe" style="display:none;">
+        <h1 style="color: beige;">My Wardrobe</h1>
+        <div class="home-button-container">
+            <button onclick="showPage('home')">Home</button>
+        </div>
+        <div class="wardrobe-section">
+            <div class="wardrobe-buttons">
+                <!-- Each button links to its respective page -->
+                <button class="wardrobe-btn" onclick="openCategoryPage('tops')">Tops</button>
+                <button class="wardrobe-btn" onclick="openCategoryPage('bottoms')">Bottoms</button>
+                <button class="wardrobe-btn" onclick="openCategoryPage('onepieces')">One-Pieces</button>
+                <button class="wardrobe-btn" onclick="openCategoryPage('shoes')">Shoes</button>
+            </div>
+        </div>
+        <div id="wardrobe-gallery" style="display:none;"></div>
+            <button onclick="closeGallery()">Back</button>
+            <div id="gallery-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
